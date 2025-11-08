@@ -16,6 +16,4 @@ OmniCart Pipeline automates the process of:
 The tool is fully packaged as a **CLI (Command Line Interface)** using [Poetry](https://python-poetry.org/), making it easy to install and execute from anywhere:
 
 ```bash
-pip install omnicart-pipeline-yourname
-omnicart-pipeline
-# de-capstone-packagings-Momodu-Ibrahim
+pip install omnicart
