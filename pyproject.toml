@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "omnicart-pipeline-yourname"        # change to a unique name for PyPI / TestPyPI
+version = "0.1.0"
+description = "OmniCart Analytics CLI: fetch, enrich and analyze product/seller data"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://example.com/omnicart-pipeline"
+repository = "https://github.com/youruser/omnicart-pipeline"
+keywords = ["cli", "data-pipeline", "analytics", "omnicart"]
+# Ensure poetry will include the package directory
+packages = [
+  { include = "omnicart_pipeline" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31"
+pandas = "^2.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4"
+pytest-mock = "^3.12"
+black = "^24.3"
+pylint = "^3.0"
+
+[tool.poetry.scripts]
+omnicart-pipeline = "omnicart_pipeline.cli:main"
+
+# Include non-Python package data (pipeline.cfg) inside the wheel/sdist
+# This mapping instructs Poetry to include the file in the built package.
+[tool.poetry.include]
+"omnicart_pipeline/pipeline.cfg" = "omnicart_pipeline/pipeline.cfg"
+
+[build-system]
+requires = ["poetry-core>=1.6"]
+build-backend = "poetry.core.masonry.api"
+
+# Optional: Configure repositories if you frequently publish to TestPyPI
+# (Don't put tokens here — configure tokens with `poetry config pypi-token.testpypi <TOKEN>`)
+# [[tool.poetry.source]]
+# name = "testpypi"
+# url = "https://test.pypi.org/simple/"
+# default = false
